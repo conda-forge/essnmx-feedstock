@@ -1,6 +1,6 @@
 context:
   name: essnmx
-  version: 25.3.0
+  version: "25.12.0"
   python_min: "3.10"
 
 package:
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/essnmx-${{ version }}.tar.gz
-  sha256: a81c6cc6ddb643c8b122d4da990b3b4df5a6266b6886483f7553860009d2f1e5
+  sha256: af3d3c5649255589a16d119ec416a8863c8ee361b6a11f7b98a98fb2900ad2e1
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -23,7 +23,7 @@ requirements:
     - setuptools-scm >=8.0
     - pip
   run:
-    - python >=${{ python_min }} 
+    - python >=${{ python_min }}
     - dask-core
     - essreduce >=24.03.0
     - python-graphviz
