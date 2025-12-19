@@ -12,7 +12,7 @@ source:
   sha256: af3d3c5649255589a16d119ec416a8863c8ee361b6a11f7b98a98fb2900ad2e1
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -35,7 +35,9 @@ requirements:
     - pandas >=2.1.2
     - gemmi >=0.6.6
     - defusedxml >=0.7.1
-    - bitshuffle >=0.5.2
+    # bitshuffle conda forge recipe doesn't support win
+    - if: not win
+      then: bitshuffle >=0.5.2
     - msgpack-python >=1.0.8
     - tof >=25.12.1
 
