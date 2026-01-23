@@ -1,6 +1,6 @@
 context:
   name: essnmx
-  version: "25.12.0"
+  version: "26.1.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/essnmx-${{ version }}.tar.gz
-  sha256: af3d3c5649255589a16d119ec416a8863c8ee361b6a11f7b98a98fb2900ad2e1
+  sha256: 404a663b2aa2c0aa54ce2290e164b668c5f828c9aab86481dc0a93d6262c775e
 
 build:
-  number: 3
+  number: 0
   skip: match(python, "<3.11")
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -23,8 +23,8 @@ requirements:
     - pip
   run:
     - python
-    - dask-core
-    - essreduce >=25.11.5
+    - dask-core >=2022.1.0
+    - essreduce >=26.1.1
     - python-graphviz
     - plopp >=24.7.0
     - sciline >=24.06.0
@@ -44,7 +44,6 @@ tests:
   - python:
       imports:
         - ess.nmx
-      pip_check: false
 
 about:
   summary: Data reduction for NMX at the European Spallation Source.
