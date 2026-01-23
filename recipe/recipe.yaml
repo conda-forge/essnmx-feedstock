@@ -23,8 +23,8 @@ requirements:
     - pip
   run:
     - python
-    - dask-core
-    - essreduce >=25.11.5
+    - dask-core >=2022.1.0
+    - essreduce >=26.1.1
     - python-graphviz
     - plopp >=24.7.0
     - sciline >=24.06.0
@@ -44,7 +44,6 @@ tests:
   - python:
       imports:
         - ess.nmx
-      pip_check: false
 
 about:
   summary: Data reduction for NMX at the European Spallation Source.
