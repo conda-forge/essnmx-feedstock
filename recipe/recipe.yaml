@@ -1,6 +1,6 @@
 context:
   name: essnmx
-  version: "26.1.0"
+  version: "26.2.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/essnmx-${{ version }}.tar.gz
-  sha256: 404a663b2aa2c0aa54ce2290e164b668c5f828c9aab86481dc0a93d6262c775e
+  sha256: a76b43b94a14607ccb408ecd6e4580080ebf094ba02611a300c53f83ab4bf451
 
 build:
   number: 0
