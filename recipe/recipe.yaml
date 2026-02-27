@@ -1,6 +1,7 @@
 context:
   name: essnmx
-  version: "26.1.0"
+  version: "26.2.0"
+  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
@@ -8,21 +9,21 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/essnmx-${{ version }}.tar.gz
-  sha256: 404a663b2aa2c0aa54ce2290e164b668c5f828c9aab86481dc0a93d6262c775e
+  sha256: a76b43b94a14607ccb408ecd6e4580080ebf094ba02611a300c53f83ab4bf451
 
 build:
   number: 0
-  skip: match(python, "<3.11")
+  noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python
+    - python ${{ python_min }}.*
     - setuptools >=77
     - setuptools-scm >=8.0
     - pip
   run:
-    - python
+    - python >=${{ python_min }}
     - dask-core >=2022.1.0
     - essreduce >=26.1.1
     - python-graphviz
@@ -34,9 +35,6 @@ requirements:
     - pandas >=2.1.2
     - gemmi >=0.6.6
     - defusedxml >=0.7.1
-    # bitshuffle conda forge recipe doesn't support win
-    - if: not win
-      then: bitshuffle >=0.5.2
     - msgpack-python >=1.0.8
     - tof >=25.12.1
 
@@ -44,6 +42,8 @@ tests:
   - python:
       imports:
         - ess.nmx
+      pip_check: true
+      python_version: ${{ python_min }}.*
 
 about:
   summary: Data reduction for NMX at the European Spallation Source.
