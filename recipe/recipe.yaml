@@ -25,7 +25,7 @@ requirements:
   run:
     - python >=${{ python_min }}
     - dask-core >=2022.1.0
-    - essreduce >=26.1.1
+    - essreduce >=26.4.0
     - python-graphviz
     - plopp >=24.7.0
     - sciline >=24.06.0
