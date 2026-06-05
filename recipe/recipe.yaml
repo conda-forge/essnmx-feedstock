@@ -50,8 +50,8 @@ about:
   summary: Data reduction for NMX at the European Spallation Source.
   license: BSD-3-Clause
   license_file: LICENSE
-  repository: https://github.com/scipp/essnmx
-  homepage: https://scipp.github.io/essnmx/
+  repository: https://github.com/scipp/ess/tree/main/packages/essnmx
+  homepage: https://scipp.github.io/ess/nmx/
 
 extra:
   recipe-maintainers:
